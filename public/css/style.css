@@ -1,0 +1,189 @@
+*{
+	margin : 0;
+	padding: 0;
+}
+body{
+	height: 100%;
+	min-height: 100%;
+	background-color: #f6f1ed;
+	font-family: 'Quicksand', sans-serif;
+}
+
+/*COMMON*/
+
+.hide{
+	display: none;
+}
+/*PAGE*/
+.page{
+	width: 200px;
+	border:2px dashed red;
+	border-top: none;
+	margin-bottom: 10px;
+}
+.page a{
+	text-decoration: none;
+	font-weight: bold;
+	width: 198px;
+
+}
+.page ul{
+	width: 198px;
+	list-style-type: none;
+}
+.page ul li {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+}
+/*CATEGORY*/
+.category{
+	width: 200px;
+	border: 1px solid black;
+}
+.category a{
+	text-decoration: none;
+	font-weight: bold;
+	width: 195px;
+
+}
+.category ul{
+	list-style-type: none;
+	width: 198px;
+}
+.category ul li {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+}
+.category #title{
+	background-color: black;
+	color: white;
+	width: 200px;
+	padding: 5px 5px;
+	margin-top: 0px;
+}
+.category ul li:hover,
+.category a:hover{
+	color: #fff;
+	background-color: black;
+	transition: 0.75s;
+}
+/*Other related category*/
+#brandCategory{
+	background-color: #ddffff;
+	border-left: 3px solid #315b7c;
+	padding-left: 5px;
+}
+
+/*POST*/
+
+.post{
+	border-bottom: 1px solid #30231d;
+}
+.post:last-child{
+	border:none;
+}
+#title{
+	margin:10px 0px;
+}
+#time{
+	margin:10px 0px;
+	font-style: italic;
+}
+#content{
+	text-align: justify;
+}
+
+
+/*FOOTER*/
+footer{
+	border-top: 2px solid black;
+	//margin-top: 50px;
+	height: 100px;
+	background-color: rgba(0, 0, 0, 0.5);;
+	box-shadow: 0px 2px 5px;
+
+	position: fixed;
+	bottom: 0;
+	width: inherit;
+}
+footer a{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+footer p{
+	text-align: center;
+	margin:10px 0px;
+	color:#fff;
+}
+
+/*ADMIN CMS*/
+
+
+/*LEFT PAGE ADMIN*/
+.leftpage{
+	height: 100vh;
+	color:#fff;
+}
+.leftpage h2{
+	margin-top: 0px;
+	padding:5px 10px;
+}
+.leftpage ul{
+	list-style-type: none;
+}
+.leftpage ul li{
+	height: 50px;
+	line-height: 50px;
+	padding-left: 10px
+}
+.leftpage{
+	background-color: black;
+	font-size: 18px;
+}
+.leftpage a{
+	color: #fff;
+	text-decoration: none;
+}
+.leftpage li:hover{
+	background-color: gray;
+	transition: 0.75s;
+}
+
+/*RIGHT PAGE ADMIN*/
+.rightpage{
+
+}
+/*BUTTON*/	
+button > a,
+button > a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+
+.button{
+	border: none;
+	padding: 5px;
+}
+.button-info{
+	background-color: lightblue;
+}
+.button-danger{
+	background-color: lightcoral;
+}
+.button-info:hover,
+.button-danger:hover{
+	background-color: gray;
+	transition: 0.75s;
+}
+/*INPUT*/
+input{
+	margin:10px 0px;
+}
+/*MENU ADMIN*/
+
+#menu{
+	cursor: pointer;
+}
