@@ -9,6 +9,7 @@ body{
 	font-family: 'Quicksand', sans-serif;
 }
 
+
 /*COMMON*/
 
 .hide{
@@ -94,8 +95,10 @@ body{
 #content{
 	text-align: justify;
 }
-
-
+/*EDITOR*/
+#select-category{
+	margin-bottom: 20px;
+}
 /*FOOTER*/
 footer{
 	border-top: 2px solid black;
@@ -186,4 +189,17 @@ input{
 
 #menu{
 	cursor: pointer;
+}
+
+/*LOGIN*/
+.login{
+	margin-top: 150px;
+	height: 220px;
+	padding: 10px;
+	background-color: rgba(40, 44, 44, 0.3);
+}
+
+.login legend{
+	border-bottom: 1px solid;
+	color: #fff;
 }

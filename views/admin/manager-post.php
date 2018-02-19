@@ -7,7 +7,6 @@
 						<tr>
 							<th>Id</th>
 							<th>Title</th>
-							<th>Type</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -17,7 +16,6 @@
 						<tr>
 							<td><?php echo $post->id;?></td>
 							<td><a href="index.php?c=post&a=view&id=<?php echo $post->id;?>&link=<?php echo $post->url?>"><?php echo $post->title;?></a></td>
-							<td><?php echo $post->type;?></td>
 							<td>
 								<button class="button button-info"><a href="" >Edit</a></button>
 								<button class="button button-danger"><a href="">Delete</a></button>

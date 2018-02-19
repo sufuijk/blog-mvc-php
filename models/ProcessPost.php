@@ -21,14 +21,24 @@
 			$result = $this->select($sql);
 			return $result[0];
 		}
+
+		public function insertPost($title,$content,$userid,$category_id,$timedate,$url){
+			$sql = "INSERT INTO posts(title,content,userid,category_id,timedate,url)
+			 VALUES('$title','$content','$userid','$category_id','$timedate','$url')";
+			return $this->insert($sql);
+			
+		}
+
 		public function getPostofCategory($category_id){
 			$sql = "SELECT * FROM posts WHERE category_id = '$category_id'";
 			return $this->select($sql);
 		}
+
 		public function getCategory($category_id){
 			$sql = "SELECT * FROM categories WHERE id = '$category_id'";
 			return $this->select($sql);
 		}
+
 		public function getCategoryId($category_link){
 			$sql = "SELECT * FROM categories WHERE url = '$category_link'";
 			$result = $this->select($sql);
