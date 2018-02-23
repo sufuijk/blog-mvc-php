@@ -21,6 +21,10 @@
 				if($this->model->checkAccount($_POST['username'],$_POST['password'])){
 					//Make seesion to account 
 					$this->model->getInfo($_POST['username'],$_POST['password']);
+				}else{
+					$error = "Wrong username or password";
+					$this->view->header();
+					$this->view->render('admin/login.php',$error);
 				}
 			}
 		}
@@ -50,12 +54,14 @@
 			$this->view->headerAdmin();
 			$this->view->render('admin/manager-post.php',$data);
 		}
+		//---------------------------------CREATE POST----------------------------//
 		public function newpost(){
 			$this->view->header();
 			$this->view->headerAdmin();
 			$this->view->render('admin/create-post.php',$this->initData);
 		}
 
+		//Save for new post
 		public function savepost(){
 			//Required model
 			require_once(MODEL.'ProcessPost.php');
@@ -75,12 +81,107 @@
 			//Save post
 			if($title && $content && $id && $category_id && $timedate && $url){
 				$result = $this->model->insertPost($title,$content,$id,$category_id,$timedate,$url);
-				print_r($result);
 			}else{
 				echo "Error! Can't be save this post, maybe wrong something.";
 			}
 
 		}
+		//---------------------------------CREATE POST----------------------------//
+
+		//---------------------------------EDIT POST----------------------------//
+		public function editPost(){
+			$this->view->header();
+			$this->view->headerAdmin();
+
+			//Process id post 
+			$id = isset($_GET['id'])? $_GET['id']:false;
+			if($id){
+				//Require model 
+				require_once(MODEL.'ProcessPost.php');
+				$this->model = new ProcessPost();
+				//Get post with id
+				$data = $this->model->getPost($id);
+				//Transfer data to edit
+				$this->view->render('admin/edit-post.php',$this->initData,$data);
+			}else{
+				echo "Something wrong!";
+			}
+		}
+
+		public function saveEditPost(){
+			//Require model 
+			require_once(MODEL.'ProcessPost.php');
+			$this->model = new ProcessPost();
+			//Render view pagee
+			$this->view->header();
+			$this->view->headerAdmin();
+			//Process data
+			$id_post = empty($_GET['id'])? false:$_GET['id'];
+			$title = empty($_POST['title'])? false: $_POST['title'];
+			$content = empty($_POST['content'])? false:$_POST['content'];
+			$category_id = empty($_POST['category_id'])? false:$_POST['category_id'];
+			if($title)
+				$url = str_replace(' ', '-', $title);
+			//Update post
+			if($id_post && $title && $content && $category_id && $url){
+				$result = $this->model->updatePost($id_post,$title,$content,$_SESSION['id'],$category_id,$url);
+				echo "Sửa thành công.";
+			}else{
+				echo "Error! Can't be save this post, maybe wrong something.";
+			}
+		}
+
+		//---------------------------------EDIT POST----------------------------//
+		
+		//---------------------------------DELETE POST----------------------------//
+
+		public function deletePost(){
+			//Require model 
+			require_once(MODEL.'ProcessPost.php');
+			$this->model = new ProcessPost();
+			//Render view pagee
+			$this->view->header();
+			$this->view->headerAdmin();
+			//Process data
+			$id_post = empty($_GET['id'])? false:$_GET['id'];
+			if($id_post){
+				$this->model->deletePost($id_post);
+			}
+		}
+		//---------------------------------DELETE POST----------------------------//
+
+
+		//---------------------------------CREATE CATEGORY----------------------------//
+
+		public function newcategory(){
+			$this->view->header();
+			$this->view->headerAdmin();
+			$this->view->render('admin/create-category.php',$this->initData);
+		}
+
+		public function saveCategory(){
+			
+			//Require model 
+			require_once(MODEL.'ProcessPost.php');
+			$this->model = new ProcessPost();
+			//Render view pagee
+			$this->view->header();
+			$this->view->headerAdmin();
+			//Process data
+			$title = empty($_POST['titleOfCategory'])? false: $_POST['titleOfCategory'];
+			$description = empty($_POST['description'])? null:$_POST['description'];
+			if($title)
+				$url = str_replace(' ', '-', $title);
+			if($title && $url){
+				$result = $this->model->insertCategory($title,$url,$description);
+				print_r($result);
+				header("Location: index.php?c=admin&a=newcategory");
+			}else{
+				echo "Error! Something wrong!";
+			}
+
+		}
+		//---------------------------------CREATE CATEGORY----------------------------//
 
 	}
 ?>

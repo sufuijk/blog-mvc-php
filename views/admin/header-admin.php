@@ -3,14 +3,14 @@
 		<h2>Administrator</h2>
 		<div id="menu">
 			 <ul>
-				<li class="haveSubmenu">Bài viết</li>
+				<li class="haveSubmenu">Bài viết & danh mục</li>
 				<ul class="Submenu hide">
 					<a href="index.php?c=admin&a=newpost"><li> -Tạo bài viết</li></a>
 					<a href="index.php?c=admin&a=postlist"><li> -Quản lí bài viết</li></a>
+					<a href="index.php?c=admin&a=newcategory"><li> -Tạo danh mục</li></a>
 				</ul>
 				<li class="haveSubmenu">Tài khoản</li>
 				<ul class="Submenu hide">
-					<li> -Tạo bài viết</li>
 					<a href="index.php?c=admin&a=logout"><li> -Thoát</li></a>
 				</ul>
 			 </ul>

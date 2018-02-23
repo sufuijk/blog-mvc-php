@@ -5,7 +5,9 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
-	
+	.error{
+		color: #fff;
+	}	
 
 </style>
 
@@ -18,10 +20,12 @@
 		
 			<div class="form-group">
 				<input type="text" class="form-control" id="" name="username" placeholder="Username">
-				<input type="password" class="form-control" id="" name="password" placeholder="Password">
+				<input type="password" class="form-control" id="" name="password" placeholder="Password">	
 			</div>
 		
-			
+			<div class="error">
+				<?php if($data) echo $data;?>
+			</div>
 		
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>

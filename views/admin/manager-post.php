@@ -17,8 +17,8 @@
 							<td><?php echo $post->id;?></td>
 							<td><a href="index.php?c=post&a=view&id=<?php echo $post->id;?>&link=<?php echo $post->url?>"><?php echo $post->title;?></a></td>
 							<td>
-								<button class="button button-info"><a href="" >Edit</a></button>
-								<button class="button button-danger"><a href="">Delete</a></button>
+								<button class="button button-info"><a href="index.php?c=admin&a=editPost&id=<?php echo $post->id;?>" >Edit</a></button>
+								<button class="button button-danger"><a href="index.php?c=admin&a=deletePost&id=<?php echo $post->id;?>">Delete</a></button>
 							</td>
 						</tr>
 						<?php endforeach;?>

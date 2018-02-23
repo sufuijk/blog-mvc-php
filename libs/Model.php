@@ -29,6 +29,13 @@
 		public function insert($sql){
 			return $this->connect->query($sql);
 		}
+		public function update($sql){
+			return $this->connect->query($sql);
+		}
+
+		public function delete($sql){
+			return $this->connect->query($sql);
+		}
 		public function getAllCategories(){
 			$sql = "SELECT * FROM categories";
 			return $this->select($sql);

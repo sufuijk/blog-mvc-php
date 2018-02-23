@@ -203,3 +203,8 @@ input{
 	border-bottom: 1px solid;
 	color: #fff;
 }
+
+/* NEW CATEGORY*/
+#form-add-category{
+	margin-bottom:  10px;
+}
