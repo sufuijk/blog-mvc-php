@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 18, 2018 at 04:11 PM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th2 23, 2018 lúc 08:46 AM
+-- Phiên bản máy phục vụ: 10.1.28-MariaDB
+-- Phiên bản PHP: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,38 +19,39 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `blog`
+-- Cơ sở dữ liệu: `blog`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Cấu trúc bảng cho bảng `categories`
 --
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `title` varchar(50) CHARACTER SET utf8 NOT NULL,
   `url` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `parent` int(11) DEFAULT NULL
+  `parent` int(11) DEFAULT NULL,
+  `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `categories`
+-- Đang đổ dữ liệu cho bảng `categories`
 --
 
-INSERT INTO `categories` (`id`, `title`, `url`, `parent`) VALUES
-(1, 'Uncategory', 'Uncategory', 0);
+INSERT INTO `categories` (`id`, `title`, `url`, `parent`, `description`) VALUES
+(1, 'Uncategory', 'Uncategory', 0, NULL),
+(2, 'News', 'News', NULL, 'Tin thá»i sá»±');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Cấu trúc bảng cho bảng `posts`
 --
 
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL,
-  `type` varchar(40) CHARACTER SET utf8 NOT NULL,
   `title` varchar(100) CHARACTER SET utf8 NOT NULL,
   `content` text NOT NULL,
   `userid` int(11) NOT NULL,
@@ -58,17 +61,18 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `posts`
+-- Đang đổ dữ liệu cho bảng `posts`
 --
 
-INSERT INTO `posts` (`id`, `type`, `title`, `content`, `userid`, `category_id`, `timedate`, `url`) VALUES
-(2, 'normal', 'Programing is life', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic corrupti amet laudantium maxime quas, doloremque inventore, fugit nihil at doloribus asperiores unde repellendus vitae, voluptate labore ad praesentium accusamus beatae deserunt dolorem eos temporibus dolore quod sint magnam? Non velit, voluptates a laborum, quidem sunt dolores. Autem magni dolorum quis?', 1, 1, '0000-00-00 00:00:00', 'programing-is-life'),
-(3, 'normal', 'Program C#', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic corrupti amet laudantium maxime quas, doloremque inventore, fugit nihil at doloribus asperiores unde repellendus vitae, voluptate labore ad praesentium accusamus beatae deserunt dolorem eos temporibus dolore quod sint magnam? Non velit, voluptates a laborum, quidem sunt dolores. Autem magni dolorum quis?', 1, 1, '2018-02-05 00:00:00', '');
+INSERT INTO `posts` (`id`, `title`, `content`, `userid`, `category_id`, `timedate`, `url`) VALUES
+(2, 'Programing is life', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic corrupti amet laudantium maxime quas, doloremque inventore, fugit nihil at doloribus asperiores unde repellendus vitae, voluptate labore ad praesentium accusamus beatae deserunt dolorem eos temporibus dolore quod sint magnam? Non velit, voluptates a laborum, quidem sunt dolores. Autem magni dolorum quis?', 1, 1, '0000-00-00 00:00:00', 'programing-is-life'),
+(3, 'Cháº³ng biáº¿t nÃ³i gÃ¬ hÆ¡n', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti blanditiis nesciunt voluptates, hic iure harum nisi at ullam delectus excepturi iste obcaecati saepe consequatur perferendis necessitatibus earum neque, maiores nihil voluptatum itaque maxime reiciendis!</p>\r\n', 1, 2, '2018-02-05 00:00:00', ''),
+(4, 'Hello world', '<p>Tap is hieu</p>\r\n', 1, 1, '2018-02-19 06:59:28', 'Hello-world');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -78,24 +82,24 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
 (1, 'sufuijk', 'sufuijk');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `categories`
+-- Chỉ mục cho bảng `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `posts`
+-- Chỉ mục cho bảng `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
@@ -103,40 +107,44 @@ ALTER TABLE `posts`
   ADD KEY `category_id` (`category_id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `posts`
+-- Các ràng buộc cho bảng `posts`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
