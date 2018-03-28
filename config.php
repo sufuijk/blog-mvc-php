@@ -7,6 +7,6 @@
 	define("LIB",URL."/libs/");
 	define("PUB",URL."/public/");
 
-	define("BLOGNAME","Sufuijk's Blog");
+	define("BLOGNAME","Minh Hiu's Blog");
 	
 ?>

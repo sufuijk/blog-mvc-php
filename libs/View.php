@@ -19,7 +19,7 @@
 		public function render($url,$data=null,$data1=null){
 			require_once(VIEW.$url);
 		}
-		public function headerAdmin(){
+		public function headerAdmin($data=null){
 			require_once(VIEW.'admin/header-admin.php');
 		}
 		public function footerAdmin(){

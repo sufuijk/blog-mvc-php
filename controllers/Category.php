@@ -27,6 +27,16 @@
 			$this->view->render('home/category.php',$data,$category);
 			$this->view->footer();
 		}
+
+		public function allInfoCategory(){
+			require_once(MODEL.'ProcessPost.php');
+			$this->model = new ProcessPost();
+			
+			$category_id = (isset($_GET['category_id']))? $_GET['category_id']:false;
+			if($category_id)
+				$data = $this->model->getCategory($category_id);
+			echo json_encode($data);
+		}
 	}
 ?>
 

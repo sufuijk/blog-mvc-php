@@ -1,9 +1,8 @@
+<span style="font-size:30px;cursor:pointer" id="show-menu" class="right-menu glyphicon glyphicon-home"></span>
 
-
-	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-		<h1>Sufuijk's Blog</h1>
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
 		<hr>
-		<h2 id="brandCategory"><?php foreach($data1 as $category): echo $category->title; endforeach; ?>:</h2>
+		<h2 id="brandCategory"><?php  echo $data1->title;?>:</h2>
 		<?php foreach ($data as $post):?>
 		<div class="post">
 			<h3 id="title">
@@ -11,7 +10,7 @@
 					<?php echo $post->title;?>
 				</a>
 			</h3>
-			<div id="time"><span class="glyphicon glyphicon-time"></span><?php echo $post->timedate;?></div>
+			<div id="time"><span class="glyphicon glyphicon-time"></span><?php echo date('jS F, Y', strtotime($post->timedate));?></div>
 			<p id="content"><?php echo $post->content;?></p>
 		</div>
 		<?php endforeach;?>
