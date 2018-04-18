@@ -9,6 +9,8 @@
 		private $username = "root";
 		private $password = "";
 		private $database = "blog";
+
+		
 		
 		protected $connect;
 		function __construct()

@@ -32,7 +32,7 @@
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Dashboard</a></li>
+					<li><a href="index.php?c=admin">Dashboard</a></li>
 					<li><a href="index.php?c=admin&a=listPost">Bài viết</a></li>
 					<li><a href="index.php?c=admin&a=listCategory">Danh mục</a></li>
 				</ul>

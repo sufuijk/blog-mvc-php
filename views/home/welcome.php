@@ -16,7 +16,7 @@
           <ul class="nav ">
             <li class="active"><a href="index.php?c=home">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a>
               <ul class="dropdown-menu" role="menu" id="special">
                 <?php foreach ($data as $category):?>
                 <li><a href="index.php?c=category&a=list&category_url=<?php echo $category->url;?>"><?php echo $category->title;?> <span class="badge">1,118</span></a></li>

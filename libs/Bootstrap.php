@@ -5,6 +5,7 @@
 
 
 	$filename = CONTROLLER.$controller.'.php';
+	
 	if(file_exists($filename)){
 		require_once($filename);
 		$controller = new $controller();
